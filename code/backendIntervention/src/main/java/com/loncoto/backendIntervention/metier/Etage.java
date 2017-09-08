@@ -1,14 +1,10 @@
 package com.loncoto.backendIntervention.metier;
 
-
-import java.util.Set;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,17 +12,11 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter@Setter@NoArgsConstructor@ToString(exclude={"materiels"})
-public class Article {
+@Getter@Setter@NoArgsConstructor@ToString
+public class Etage {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Id								private int id;
-	@Column(length=100) private String nom;
-	@Column(length=400) private String description;
-	
-	@ManyToOne
-	private SousFamille sousFamille;
-	
-	@OneToMany
-	private Set<Materiel> materiels;
+@Id						private int id;
+						private int numeroEtage;
+@ManyToOne				private Batiment batimentEtage;
 
 }
