@@ -25,7 +25,7 @@
 
 <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
-<jpa:repositories base-package="com.khalid.epategallerie.repositories"></jpa:repositories>
+<jpa:repositories base-package="com.loncoto.backendIntervention.repositories"></jpa:repositories>
 <context:property-placeholder location="classpath*:database.properties"/>
 
 <bean id="dataSource" 
