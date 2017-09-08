@@ -16,16 +16,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter@Setter@NoArgsConstructor@ToString(exclude={"materiels"})
-public class Article {
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Id								private int id;
-	@Column(length=100) private String nom;
-	@Column(length=400) private String description;
-	
-	@ManyToOne
-	private SousFamille sousFamille;
-	
-	@OneToMany
-	private Set<Materiel> materiels;
+@Getter @Setter @NoArgsConstructor @ToString(exclude={"articles"})
+public class SousFamille {
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Id private int id;
+		@Column(length=100) private String libelle;
+		
+		@OneToMany
+		private Set<Article> articles;
+		
+		@ManyToOne
+		private Famille famille;
 }
