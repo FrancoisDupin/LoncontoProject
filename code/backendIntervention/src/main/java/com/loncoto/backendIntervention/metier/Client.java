@@ -1,10 +1,14 @@
 package com.loncoto.backendIntervention.metier;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,5 +24,7 @@ public class Client {
 @Column(length=200)						private String adresse;
 @Column(length=150)						private String email;
 										private int telephone;
+@ManyToMany								private Set<Site> sites;
+@OneToMany								private Set<Materiel> materiels;
 
 }

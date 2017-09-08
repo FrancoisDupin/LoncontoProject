@@ -1,11 +1,14 @@
 package com.loncoto.backendIntervention.metier;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,5 +22,6 @@ public class Salle {
 @Id								private int id;
 @Column(length=50)				private String name;	
 @ManyToOne						private Etage etageSalle;	
+@OneToMany						private Set<Materiel> materiels;
 
 }
