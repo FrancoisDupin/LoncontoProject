@@ -13,10 +13,9 @@ import lombok.ToString;
 
 @Entity
 @Getter@Setter@NoArgsConstructor@ToString
-public class Article {
+public class Site {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Id								private int id;
-	@Column(length=100)				private String libelle;
-	
+@Id						private int id;
+@Column(length=50)		private String nom;
 
 }

@@ -1,10 +1,10 @@
 package com.loncoto.backendIntervention.metier;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +13,10 @@ import lombok.ToString;
 
 @Entity
 @Getter@Setter@NoArgsConstructor@ToString
-public class Article {
+public class Etage {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Id								private int id;
-	@Column(length=100)				private String libelle;
-	
+@Id						private int id;
+						private int numeroEtage;
+@ManyToOne				private Batiment batimentEtage;
 
 }
