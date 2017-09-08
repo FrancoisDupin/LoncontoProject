@@ -1,13 +1,13 @@
 package com.loncoto.backendIntervention.metier;
 
-import java.util.Set;
+import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +16,19 @@ import lombok.ToString;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @ToString
-public class Materiel {
+public class Intervention {
+
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String numeroSerie;
+	private LocalDateTime datePlanifiee;
+	private LocalDateTime dateRealisation;
+	private Statut statut;
+	@Column(length=400)
+	private String commentaire;
+	
 	@ManyToOne
-	private Article article;
+	private Intervenant intervenant;
+	
 	@ManyToOne
-	private Client proprietaire;
-	@ManyToOne
-	private Salle salle;
-	@OneToMany
-	private Set<Intervention> interventions;
+	private Materiel materiel;
 }
